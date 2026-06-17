@@ -22,6 +22,8 @@ function App() {
 
   const [messaggio, setMessaggio] = useState("");
 
+  const [fotoCarta, setfotoCarta] =useState(null);
+
   const livello = Math.floor(xp / 100) + 1;
 
   const xpNelLivello = xp % 100;
@@ -102,10 +104,26 @@ function App() {
 
     setCollezione([...collezione, carta]);
 
-    setXp(xp + xpGuadagnati);
+    const nuovoXp = xp + xpGuadagnati;
 
-  }
+const vecchioLivello = Math.floor(xp / 100) + 1;
 
+const nuovoLivello = Math.floor(nuovoXp / 100) + 1;
+
+setXp(nuovoXp);
+
+if (nuovoLivello > vecchioLivello) {
+
+  setLevelUp(true);
+
+  setTimeout(() => {
+
+    setLevelUp(false);
+
+  }, 3000);
+}
+
+}
   function scannerFotocamera() {
 
     setMessaggio("Scanner fotocamera in arrivo!");
@@ -192,41 +210,83 @@ function App() {
 
           </div>
 
-          <div className="menu-grid">
+         <div className="home-actions">
 
-            <button onClick={() => setSchermata("collezione")}>
+  <button className="main-scan" onClick={() => setSchermata("scanner")}>
 
-              📚 <span>Collezione</span>
+    <span>📸</span>
 
-              <small>{collezione.length} carte</small>
+    <strong>Scansiona Carta</strong>
 
-            </button>
+    <small>Apri lo scanner</small>
 
-            <button onClick={() => setSchermata("cerca")}>
+  </button>
 
-              🔎 <span>Cerca</span>
+</div>
 
-              <small>Trova carte</small>
+<div className="home-grid">
 
-            </button>
+  <button onClick={() => setSchermata("collezione")}>
 
-            <button onClick={() => setSchermata("tutte")}>
+    <span>📚</span>
 
-              🃏 <span>Tutte le carte</span>
+    <strong>Collezione</strong>
 
-              <small>Database</small>
+    <small>{collezione.length} carte</small>
 
-            </button>
+  </button>
 
-            <button onClick={() => setSchermata("profilo")}>
+  <button onClick={() => setSchermata("cerca")}>
 
-              👤 <span>Profilo</span>
+    <span>🔎</span>
 
-              <small>Statistiche</small>
+    <strong>Cerca</strong>
 
-            </button>
+    <small>Trova carte</small>
 
-          </div>
+  </button>
+
+  <button onClick={() => setSchermata("tutte")}>
+
+    <span>🃏</span>
+
+    <strong>Tutte le carte</strong>
+
+    <small>Database</small>
+
+  </button>
+
+  <button onClick={() => setSchermata("profilo")}>
+
+    <span>👤</span>
+
+    <strong>Profilo</strong>
+
+    <small>Statistiche</small>
+
+  </button>
+
+  <button onClick={() => setSchermata("badge")}>
+
+    <span>🏆</span>
+
+    <strong>Badge</strong>
+
+    <small>Ricompense</small>
+
+  </button>
+
+  <button onClick={() => setSchermata("missioni")}>
+
+    <span>🎯</span>
+
+    <strong>Missioni</strong>
+
+    <small>XP bonus</small>
+
+  </button>
+
+</div>
 
         </>
 
@@ -292,19 +352,58 @@ function App() {
 
       )}
 
-      {schermata === "scanner" && (
+  {schermata === "scanner" && (
 
-        <div className="glass-card scanner-big">
+  <div className="glass-card scanner-big">
 
-          <h2>📸 Scanner</h2>
+    <h2>📸 Scanner Carta</h2>
 
-          <p>Qui arriverà la scansione da fotocamera.</p>
+    <p>Scatta o carica una foto della tua carta.</p>
 
-          <button onClick={scannerFotocamera}>Apri fotocamera</button>
+    <input
 
-        </div>
+      type="file"
 
-      )}
+      accept="image/*"
+
+      capture="environment"
+
+      onChange={(e) => {
+
+        const file = e.target.files[0];
+
+        if (file) {
+
+          setFotoCarta(URL.createObjectURL(file));
+
+          setMessaggio("Foto caricata! Presto l'AI riconoscerà la carta.");
+
+        }
+
+      }}
+
+    />
+
+    {fotoCarta && (
+
+      <div className="foto-preview">
+
+        <img src={fotoCarta} alt="Carta scansionata" />
+
+        <button onClick={() => setSchermata("cerca")}>
+
+          Cerca manualmente questa carta
+
+        </button>
+
+      </div>
+
+    )}
+
+  </div>
+
+)}
+
 
       {schermata === "collezione" && (
 
@@ -356,25 +455,57 @@ function App() {
 
       )}
 
-      {schermata === "profilo" && (
+     {schermata === "profilo" && (
 
-        <div className="glass-card">
+  <div className="glass-card">
 
-          <h2>👤 Profilo</h2>
+    <h2>👤 Profilo</h2>
 
-          <p>Allenatore: {nomeAllenatore}</p>
+    <p>Allenatore: {nomeAllenatore}</p>
 
-          <p>Livello: {livello}</p>
+    <p>Livello: {livello}</p>
 
-          <p>XP totale: {xp}</p>
+    <p>XP totale: {xp}</p>
 
-          <p>Carte totali: {collezione.length}</p>
+    <p>Carte totali: {collezione.length}</p>
 
-          <p>Carte uniche: {new Set(collezione.map((c) => c.id)).size}</p>
+    <p>Carte uniche: {new Set(collezione.map((c) => c.id)).size}</p>
 
-        </div>
+  </div>
 
-      )}
+)}
+
+{schermata === "badge" && (
+
+  <div className="glass-card">
+
+    <h2>🏆 Badge</h2>
+
+    <p>Qui appariranno i badge sbloccati.</p>
+
+    <p>🔥 Cacciatore di Rare</p>
+
+    <p>⚡ Primo Pikachu</p>
+
+    <p>👑 Allenatore Leggendario</p>
+
+  </div>
+
+)}
+
+{schermata === "missioni" && (
+
+  <div className="glass-card">
+
+    <h2>🎯 Missioni</h2>
+
+    <p>Scansiona 3 carte rare</p>
+
+    <strong>Ricompensa: +150 XP</strong>
+
+  </div>
+
+)}
 
       <nav className="bottom-nav">
 
@@ -393,7 +524,6 @@ function App() {
     </div>
 
   );
-
 }
 
 export default App;

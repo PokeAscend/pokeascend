@@ -389,3 +389,546 @@ button:active {
   margin-top: 2px;
 
 }
+/* ===== RESTYLING POKEASCEND MOBILE ===== */
+
+.app::before {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -2;
+
+  background-image:
+
+    radial-gradient(circle, rgba(255,255,255,0.18) 2px, transparent 2px),
+
+    radial-gradient(circle, rgba(250,204,21,0.18) 2px, transparent 2px);
+
+  background-size: 70px 70px, 110px 110px;
+
+  animation: particlesMove 16s linear infinite;
+
+}
+
+@keyframes particlesMove {
+
+  from {
+
+    background-position: 0 0, 0 0;
+
+  }
+
+  to {
+
+    background-position: 180px 260px, -160px 220px;
+
+  }
+
+}
+
+h1 {
+
+  animation: titlePulse 2.8s ease-in-out infinite;
+
+}
+
+@keyframes titlePulse {
+
+  0%, 100% {
+
+    transform: scale(1);
+
+    text-shadow: 3px 3px 0 #1d4ed8, 0 0 18px rgba(250, 204, 21, 0.7);
+
+  }
+
+  50% {
+
+    transform: scale(1.04);
+
+    text-shadow: 3px 3px 0 #1d4ed8, 0 0 34px rgba(250, 204, 21, 1);
+
+  }
+
+}
+
+.hero-card {
+
+  position: relative;
+
+  overflow: hidden;
+
+}
+
+.hero-card::after {
+
+  content: "";
+
+  position: absolute;
+
+  top: -80%;
+
+  left: -80%;
+
+  width: 70%;
+
+  height: 260%;
+
+  background: rgba(255,255,255,0.35);
+
+  transform: rotate(25deg);
+
+  animation: shine 3.8s infinite;
+
+}
+
+@keyframes shine {
+
+  0% {
+
+    left: -90%;
+
+  }
+
+  45% {
+
+    left: 130%;
+
+  }
+
+  100% {
+
+    left: 130%;
+
+  }
+
+}
+
+.home-actions {
+
+  margin-bottom: 18px;
+
+}
+
+.main-scan {
+
+  width: 100%;
+
+  min-height: 135px;
+
+  font-size: 22px;
+
+  background: linear-gradient(135deg, #facc15, #ef4444, #2563eb);
+
+  border-radius: 34px;
+
+  position: relative;
+
+  overflow: hidden;
+
+}
+
+.main-scan span {
+
+  display: block;
+
+  font-size: 46px;
+
+  margin-bottom: 6px;
+
+}
+
+.main-scan strong,
+
+.main-scan small {
+
+  display: block;
+
+}
+
+.main-scan small {
+
+  opacity: 0.8;
+
+  margin-top: 4px;
+
+}
+
+.home-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px;
+
+  margin-top: 18px;
+
+}
+
+.home-grid button {
+
+  min-height: 135px;
+
+  border-radius: 30px;
+
+  background:
+
+    linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06)),
+
+    rgba(15, 23, 42, 0.88);
+
+  color: white;
+
+  border: 2px solid rgba(255, 255, 255, 0.25);
+
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.38);
+
+}
+
+.home-grid span {
+
+  display: block;
+
+  font-size: 40px;
+
+  margin-bottom: 8px;
+
+}
+
+.home-grid strong {
+
+  display: block;
+
+  font-size: 16px;
+
+}
+
+.home-grid small {
+
+  display: block;
+
+  font-size: 12px;
+
+  opacity: 0.75;
+
+  margin-top: 4px;
+
+}
+
+.card-pokemon {
+
+  animation: cardAppear 0.35s ease;
+
+}
+
+@keyframes cardAppear {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(18px) scale(0.96);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+
+  }
+
+}
+/* ===== UPGRADE VISIVO: ENERGIA + GLOW ===== */
+
+.app::after {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -3;
+
+  background:
+
+    radial-gradient(circle at 50% 20%, rgba(255,255,255,0.18), transparent 18%),
+
+    radial-gradient(circle at 15% 75%, rgba(59,130,246,0.45), transparent 25%),
+
+    radial-gradient(circle at 85% 70%, rgba(239,68,68,0.38), transparent 22%);
+
+  animation: energyFlow 9s ease-in-out infinite alternate;
+
+}
+
+@keyframes energyFlow {
+
+  from {
+
+    transform: scale(1) rotate(0deg);
+
+    filter: blur(0px);
+
+  }
+
+  to {
+
+    transform: scale(1.15) rotate(4deg);
+
+    filter: blur(3px);
+
+  }
+
+}
+
+.glass-card,
+
+.hero-card,
+
+.missione {
+
+  animation: panelFloat 4s ease-in-out infinite;
+
+}
+
+@keyframes panelFloat {
+
+  0%, 100% {
+
+    transform: translateY(0);
+
+  }
+
+  50% {
+
+    transform: translateY(-4px);
+
+  }
+
+}
+
+.card-pokemon {
+
+  position: relative;
+
+  overflow: hidden;
+
+}
+
+.card-pokemon::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: -40%;
+
+  background: linear-gradient(
+
+    120deg,
+
+    transparent 35%,
+
+    rgba(255,255,255,0.45) 50%,
+
+    transparent 65%
+
+  );
+
+  transform: translateX(-120%) rotate(20deg);
+
+  animation: cardShine 4.5s infinite;
+
+}
+
+@keyframes cardShine {
+
+  0% {
+
+    transform: translateX(-120%) rotate(20deg);
+
+  }
+
+  40% {
+
+    transform: translateX(120%) rotate(20deg);
+
+  }
+
+  100% {
+
+    transform: translateX(120%) rotate(20deg);
+
+  }
+
+}
+
+.bottom-nav {
+
+  box-shadow:
+
+    0 12px 40px rgba(0, 0, 0, 0.45),
+
+    0 0 28px rgba(250, 204, 21, 0.22);
+
+}
+
+.bottom-nav button:hover {
+
+  background: rgba(250, 204, 21, 0.18);
+
+}
+
+button {
+
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+
+}
+
+button:hover {
+
+  filter: brightness(1.08);
+
+}.levelup-popup {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 99;
+
+  background: rgba(2, 6, 23, 0.72);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  animation: popupFade 0.25s ease;
+
+}
+
+.levelup-box {
+
+  width: 82%;
+
+  max-width: 340px;
+
+  background: linear-gradient(135deg, #facc15, #f97316, #ef4444);
+
+  color: #111827;
+
+  border: 5px solid white;
+
+  border-radius: 34px;
+
+  padding: 28px 22px;
+
+  text-align: center;
+
+  box-shadow: 0 0 45px rgba(250, 204, 21, 0.7);
+
+  animation: levelPop 0.6s ease;
+
+}
+
+.levelup-box h2 {
+
+  font-size: 34px;
+
+  margin: 0 0 10px;
+
+}
+
+.levelup-box p {
+
+  font-size: 20px;
+
+  font-weight: bold;
+
+}
+
+@keyframes popupFade {
+
+  from {
+
+    opacity: 0;
+
+  }
+
+  to {
+
+    opacity: 1;
+
+  }
+
+}
+
+@keyframes levelPop {
+
+  0% {
+
+    transform: scale(0.4) rotate(-8deg);
+
+    opacity: 0;
+
+  }
+
+  60% {
+
+    transform: scale(1.12) rotate(3deg);
+
+    opacity: 1;
+
+  }
+
+  100% {
+
+    transform: scale(1) rotate(0deg);
+
+  }
+
+}
+.foto-preview {
+
+  margin-top: 18px;
+
+}
+
+.foto-preview img {
+
+  width: 100%;
+
+  border-radius: 22px;
+
+  border: 4px solid #facc15;
+
+  box-shadow: 0 0 30px rgba(250, 204, 21, 0.45);
+
+  margin-bottom: 14px;
+
+}
+
+.scanner-big input {
+
+  width: 90%;
+
+  background: white;
+
+  color: #111827;
+
+  padding: 14px;
+
+  border-radius: 18px;
+
+  border: 3px solid #facc15;
+
+}
