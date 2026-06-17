@@ -1,0 +1,391 @@
+body {
+
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+
+  background: #020617;
+
+  color: white;
+
+}
+
+.app {
+
+  position: relative;
+
+  max-width: 430px;
+
+  min-height: 100vh;
+
+  margin: 0 auto;
+
+  padding: 24px 18px 105px;
+
+  text-align: center;
+
+  overflow: hidden;
+
+}
+
+.animated-bg {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -1;
+
+  background:
+
+    radial-gradient(circle at 20% 20%, rgba(250, 204, 21, 0.55), transparent 25%),
+
+    radial-gradient(circle at 80% 10%, rgba(239, 68, 68, 0.55), transparent 24%),
+
+    radial-gradient(circle at 50% 80%, rgba(37, 99, 235, 0.7), transparent 35%),
+
+    linear-gradient(180deg, #1e3a8a, #020617);
+
+  animation: moveBg 8s infinite alternate ease-in-out;
+
+}
+
+@keyframes moveBg {
+
+  from {
+
+    filter: hue-rotate(0deg);
+
+    transform: scale(1);
+
+  }
+
+  to {
+
+    filter: hue-rotate(25deg);
+
+    transform: scale(1.08);
+
+  }
+
+}
+
+h1 {
+
+  font-size: 43px;
+
+  margin: 8px 0 0;
+
+  color: #facc15;
+
+  text-shadow: 3px 3px 0 #1d4ed8, 0 0 18px rgba(250, 204, 21, 0.7);
+
+}
+
+.sottotitolo {
+
+  margin: 4px 0 22px;
+
+  font-weight: bold;
+
+}
+
+.hero-card,
+
+.glass-card,
+
+.missione {
+
+  background: rgba(15, 23, 42, 0.82);
+
+  border: 2px solid rgba(255, 255, 255, 0.18);
+
+  backdrop-filter: blur(14px);
+
+  padding: 22px;
+
+  border-radius: 30px;
+
+  margin-bottom: 18px;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+
+}
+
+.hero-card {
+
+  background: linear-gradient(135deg, rgba(250, 204, 21, 0.95), rgba(249, 115, 22, 0.95));
+
+  color: #111827;
+
+  border: 4px solid white;
+
+}
+
+.xp-bar {
+
+  height: 16px;
+
+  background: rgba(17, 24, 39, 0.25);
+
+  border-radius: 999px;
+
+  overflow: hidden;
+
+  margin: 14px 0 8px;
+
+}
+
+.xp-bar div {
+
+  height: 100%;
+
+  background: linear-gradient(90deg, #22c55e, #84cc16);
+
+  border-radius: 999px;
+
+  transition: width 0.5s ease;
+
+}
+
+.missione {
+
+  border: 3px solid #facc15;
+
+}
+
+.menu-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px;
+
+}
+
+.menu-grid button {
+
+  min-height: 125px;
+
+  font-size: 34px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 6px;
+
+}
+
+.menu-grid span {
+
+  font-size: 16px;
+
+}
+
+.menu-grid small {
+
+  font-size: 12px;
+
+  opacity: 0.8;
+
+}
+
+input {
+
+  width: 88%;
+
+  padding: 15px;
+
+  border-radius: 18px;
+
+  border: 3px solid #facc15;
+
+  margin-bottom: 12px;
+
+  font-size: 16px;
+
+  outline: none;
+
+}
+
+button {
+
+  background: linear-gradient(135deg, #ef4444, #facc15);
+
+  color: #111827;
+
+  border: 3px solid white;
+
+  padding: 13px 16px;
+
+  border-radius: 999px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow: 0 7px 0 #991b1b;
+
+}
+
+button:active {
+
+  transform: translateY(4px);
+
+  box-shadow: 0 3px 0 #991b1b;
+
+}
+
+.griglia-carte {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px;
+
+  margin-bottom: 30px;
+
+}
+
+.card-pokemon {
+
+  background: #fff7ed;
+
+  color: #111827;
+
+  padding: 10px;
+
+  border-radius: 22px;
+
+  border: 4px solid #facc15;
+
+  box-shadow: 0 12px 0 #92400e;
+
+}
+
+.card-pokemon img {
+
+  width: 100%;
+
+  border-radius: 14px;
+
+}
+
+.card-pokemon h3 {
+
+  font-size: 15px;
+
+  margin: 8px 0 4px;
+
+}
+
+.card-pokemon p {
+
+  font-size: 13px;
+
+}
+
+.card-pokemon button {
+
+  width: 100%;
+
+  font-size: 11px;
+
+  padding: 9px;
+
+}
+
+.messaggio {
+
+  background: #22c55e;
+
+  color: #052e16;
+
+  padding: 14px;
+
+  border-radius: 20px;
+
+  margin-bottom: 18px;
+
+  font-weight: bold;
+
+  border: 3px solid white;
+
+}
+
+.scanner-big {
+
+  min-height: 300px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+}
+
+.bottom-nav {
+
+  position: fixed;
+
+  left: 50%;
+
+  bottom: 14px;
+
+  transform: translateX(-50%);
+
+  width: min(410px, calc(100% - 24px));
+
+  background: rgba(15, 23, 42, 0.9);
+
+  border: 2px solid rgba(255, 255, 255, 0.18);
+
+  backdrop-filter: blur(16px);
+
+  border-radius: 26px;
+
+  padding: 10px;
+
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 6px;
+
+  z-index: 10;
+
+}
+
+.bottom-nav button {
+
+  background: transparent;
+
+  color: white;
+
+  border: none;
+
+  box-shadow: none;
+
+  padding: 8px 4px;
+
+  border-radius: 16px;
+
+  font-size: 20px;
+
+}
+
+.bottom-nav button span {
+
+  display: block;
+
+  font-size: 10px;
+
+  margin-top: 2px;
+
+}
